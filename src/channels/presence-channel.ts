@@ -43,7 +43,7 @@ export class PresenceChannel {
         return new Promise((resolve, reject) => {
             this.getMembers(channel).then(members => {
                 this.removeInactive(channel, members, member).then((members: any) => {
-                    let search = members.filter(m => m.user_id == member.user_id);
+                    let search = members.filter(m => m.user_id == member.user_id && m.user_info == member.user_info);
 
                     if (search && search.length) {
                         resolve(true);
